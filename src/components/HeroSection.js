@@ -9,9 +9,10 @@ import {
   Divider,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { ArrowBackIos, ArrowForwardIos, Visibility } from "@material-ui/icons";
+import { ArrowBackIos, ArrowForwardIos, Visibility, AccessTime, Event } from "@material-ui/icons"; // Import the necessary icons
 import video from "../assets/video/cricket.mp4";
 import "../index.css";
+
 const items = [
   {
     type: "video",
@@ -109,54 +110,80 @@ const useStyles = makeStyles((theme) => ({
   indicators: { display: "none" },
   heading: {
     position: "absolute",
-    bottom: "50px",
-    left: "20px",
+    bottom: "4rem",
+    left: "5rem",
     zIndex: 2,
     color: "#fff",
     fontSize: "2.5rem",
     fontWeight: "bold",
     fontFamily: "btBrik",
     letterSpacing: "1.5px",
-    fontWeight: 400,
-    [theme.breakpoints.down("sm")]: { fontSize: "1rem" },
-    [theme.breakpoints.down("xs")]: { fontSize: "0.8rem" },
+    [theme.breakpoints.down("sm")]: { fontSize: "1rem", bottom: "25px", left: "30px" },
+    [theme.breakpoints.down("xs")]: { fontSize: "0.8rem", bottom: "20px", left: "20px" },
   },
   badge: {
     position: "absolute",
-    top: "20px",
-    left: "20px",
+    bottom: "10rem",
+    left: "5rem",
     zIndex: 2,
     backgroundColor: theme.palette.secondary.main,
     color: "#fff",
-    padding: "3px 8px", // Adjust padding for smaller badge
+    padding: "3px 8px",
     borderRadius: "5px",
-    fontSize: "0.7rem", // Decrease font size for smaller badge
+    fontSize: "0.7rem",
     fontWeight: "bold",
+    fontFamily: 'MontserratLight',
     textTransform: "uppercase",
+    [theme.breakpoints.down("sm")]: {
+      padding: "1px 3px",
+      fontSize: "0.6rem",
+      top: "10px",
+      left: "10px",
+    },
     [theme.breakpoints.down("xs")]: {
-      padding: "2px 6px", // Further decrease padding for extra small screens
-      fontSize: "0.6rem", // Further decrease font size for extra small screens
+      padding: "1px 3px",
+      fontSize: "0.6rem",
+      top: "10px",
+      left: "10px",
     },
   },
   details: {
     position: "absolute",
-    bottom: "20px",
-    left: "20px",
+    bottom: "7.5rem",
+    left: "5rem",
     zIndex: 2,
     color: "#fff",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: { bottom: "50px", left: "30px" },
+    [theme.breakpoints.down("xs")]: { bottom: "40px", left: "20px" },
   },
   detailItem: {
     fontSize: "0.9rem",
     fontWeight: "bold",
+    fontFamily: 'MontserratLight',
+    letterSpacing:'1px',
     marginRight: "10px",
     color: "#fff",
+    [theme.breakpoints.down("sm")]: { fontSize: "0.7rem", marginRight: "5px" },
+    [theme.breakpoints.down("xs")]: { fontSize: "0.6rem", marginRight: "5px" },
+  },
+  iconContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+  icon: {
+    marginRight: "5px",
+    fontSize: "1rem",
+    [theme.breakpoints.down("sm")]: { fontSize: "0.8rem" },
+    [theme.breakpoints.down("xs")]: { fontSize: "0.7rem" },
   },
   divider: {
     height: "30px",
     borderRight: "2px solid rgba(255, 255, 255, 0.5)",
     margin: "0 10px",
+    [theme.breakpoints.down("sm")]: { height: "15px" },
+    [theme.breakpoints.down("xs")]: { height: "10px" },
   },
 }));
 
@@ -219,25 +246,26 @@ const Item = ({ item }) => {
       ) : (
         <img src={item.src} alt={item.alt} className={classes.img} />
       )}
-      <Box sx={{ width: "50%" }} component={'div'}>
+      <Box component={"div"}>
         <Chip label="Video" className={classes.badge} />
         <Typography className={classes.heading}>{item.heading}</Typography>
         <Box className={classes.details}>
-          <Typography className={classes.detailItem}>{item.date}</Typography>
-          <Divider
-            className={classes.divider}
-            orientation="vertical"
-            flexItem
-          />
-          <Typography className={classes.detailItem}>{item.time}</Typography>
-          <Divider
-            className={classes.divider}
-            orientation="vertical"
-            flexItem
-          />
-          <Typography className={classes.detailItem}>{item.views}</Typography>
+          <Box className={classes.iconContainer}>
+            <Event className={classes.icon} />
+            <Typography className={classes.detailItem}>{item.date}</Typography>
+          </Box>
+          <Divider className={classes.divider} orientation="vertical" flexItem />
+          <Box className={classes.iconContainer}>
+            <AccessTime className={classes.icon} />
+            <Typography className={classes.detailItem}>{item.time}</Typography>
+          </Box>
+          <Divider className={classes.divider} orientation="vertical" flexItem />
+          <Box className={classes.iconContainer}>
+            <Visibility className={classes.icon} />
+            <Typography className={classes.detailItem}>{item.views}</Typography>
+          </Box>
         </Box>
-      </Box>
+      </Box>  
     </Paper>
   );
 };

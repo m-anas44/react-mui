@@ -15,6 +15,15 @@
   font-family: Montserrat;
 }
 
+@font-face {
+  font-family: "MontserratLight";
+  src: url("./fonts/Montserrat/Montserrat-Light.otf") format("truetype");
+}
+.MontserratLight {
+  font-family: MontserratLight;
+}
+
+
 .app-bar {
   background-color: #111827 !important; /* Use !important to override any inline styles */
 }
