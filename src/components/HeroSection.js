@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import {
   Paper,
@@ -7,9 +7,18 @@ import {
   Box,
   Chip,
   Divider,
+  Modal,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { ArrowBackIos, ArrowForwardIos, Visibility, AccessTime, Event } from "@material-ui/icons"; // Import the necessary icons
+import {
+  ArrowBackIos,
+  ArrowForwardIos,
+  Visibility,
+  AccessTime,
+  Event,
+  PlayCircleFilled,
+  Close,
+} from "@material-ui/icons";
 import video from "../assets/video/cricket.mp4";
 import "../index.css";
 
@@ -73,6 +82,10 @@ const useStyles = makeStyles((theme) => ({
     height: "500px",
     [theme.breakpoints.down("sm")]: { height: "300px" },
     [theme.breakpoints.down("xs")]: { height: "200px" },
+    cursor: "pointer",
+    "&:hover $playButton": {
+      display: "none",
+    },
   },
   video: {
     width: "100%",
@@ -185,10 +198,55 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: { height: "15px" },
     [theme.breakpoints.down("xs")]: { height: "10px" },
   },
+  playButton: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color: "white",
+    fontSize: "5rem",
+    zIndex: 3,
+    cursor: "pointer",
+    [theme.breakpoints.down("sm")]: { fontSize: "3rem" },
+    [theme.breakpoints.down("xs")]: { fontSize: "2rem" },
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backdropFilter: "blur(5px)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalVideo: {
+    width: "100%",
+    maxHeight: "80vh",
+    outline: "none",
+    borderRadius: '10px',
+    [theme.breakpoints.down("sm")]: { width: "100%",borderRadius: '0' },
+    [theme.breakpoints.down("xs")]: { width: "100%",borderRadius: '0' },
+  },
+  closeButton: {
+    position: "absolute",
+    top: theme.spacing(1),
+    right: theme.spacing(1),
+    color: "#fff",
+  },
 }));
 
 const HeroSection = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(null);
+
+  const handleOpen = (videoSrc) => {
+    setCurrentVideo(videoSrc);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setCurrentVideo(null);
+  };
 
   return (
     <div className={classes.carousel}>
@@ -208,14 +266,36 @@ const HeroSection = () => {
         )}
       >
         {items.map((item, i) => (
-          <Item key={i} item={item} />
+          <Item key={i} item={item} handleOpen={handleOpen} />
         ))}
       </Carousel>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        className={classes.modal}
+        aria-labelledby="video-modal-title"
+        aria-describedby="video-modal-description"
+      >
+        <div>
+          <IconButton
+            className={classes.closeButton}
+            onClick={handleClose}
+          >
+            <Close />
+          </IconButton>
+          <video
+            src={currentVideo}
+            className={classes.modalVideo}
+            controls
+            autoPlay
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
 
-const Item = ({ item }) => {
+const Item = ({ item, handleOpen }) => {
   const classes = useStyles();
   const videoRef = useRef(null);
 
@@ -232,6 +312,7 @@ const Item = ({ item }) => {
       className={classes.carouselItem}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={() => handleOpen(item.src)}
     >
       <div className={classes.overlay}></div>
       {item.type === "video" ? (
@@ -246,6 +327,7 @@ const Item = ({ item }) => {
       ) : (
         <img src={item.src} alt={item.alt} className={classes.img} />
       )}
+      <PlayCircleFilled className={classes.playButton} />
       <Box component={"div"}>
         <Chip label="Video" className={classes.badge} />
         <Typography className={classes.heading}>{item.heading}</Typography>
@@ -265,7 +347,7 @@ const Item = ({ item }) => {
             <Typography className={classes.detailItem}>{item.views}</Typography>
           </Box>
         </Box>
-      </Box>  
+      </Box>
     </Paper>
   );
 };
