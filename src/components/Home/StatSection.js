@@ -37,9 +37,11 @@ const StatSection = () => {
                   component="span"
                   ref={ref}
                   sx={{
-                    background: "linear-gradient(to right, #D946EF, #3B82F6)",
+                    background: "linear-gradient(to right, #111827, #dc004e)",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
+                    fontFamily:"btBrik",
+                    padding:'10px',
                   }}
                 >
                   {inView ? <CountUp end={stat.value} duration={3} start={0}/> : 0}
