@@ -9,7 +9,7 @@ import {
   Divider,
   Modal,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import {
   ArrowBackIos,
   ArrowForwardIos,
@@ -22,14 +22,38 @@ import {
 import { items } from "../../mockData/heroMockUp";
 import "../../index.css";
 
-const useStyles = makeStyles((theme) => ({
-  carousel: {
+const PREFIX = "HeroSection";
+
+const classes = {
+  carousel: `${PREFIX}-carousel`,
+  carouselItem: `${PREFIX}-carouselItem`,
+  video: `${PREFIX}-video`,
+  img: `${PREFIX}-img`,
+  overlay: `${PREFIX}-overlay`,
+  navButton: `${PREFIX}-navButton`,
+  navButtonLeft: `${PREFIX}-navButtonLeft`,
+  navButtonRight: `${PREFIX}-navButtonRight`,
+  heading: `${PREFIX}-heading`,
+  badge: `${PREFIX}-badge`,
+  details: `${PREFIX}-details`,
+  detailItem: `${PREFIX}-detailItem`,
+  iconContainer: `${PREFIX}-iconContainer`,
+  icon: `${PREFIX}-icon`,
+  divider: `${PREFIX}-divider`,
+  playButton: `${PREFIX}-playButton`,
+  modal: `${PREFIX}-modal`,
+  modalVideo: `${PREFIX}-modalVideo`,
+  closeButton: `${PREFIX}-closeButton`,
+};
+
+const Root = styled("section")(({ theme }) => ({
+  [`& .${classes.carousel}`]: {
     position: "relative",
     width: "100%",
     maxHeight: "600px",
     overflow: "hidden",
   },
-  carouselItem: {
+  [`& .${classes.carouselItem}`]: {
     position: "relative",
     height: "600px",
     [theme.breakpoints.down("sm")]: { height: "300px" },
@@ -39,17 +63,17 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
-  video: {
+  [`& .${classes.video}`]: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
   },
-  img: {
+  [`& .${classes.img}`]: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
   },
-  overlay: {
+  [`& .${classes.overlay}`]: {
     position: "absolute",
     top: 0,
     left: 0,
@@ -62,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     color: "#fff",
   },
-  navButton: {
+  [`& .${classes.navButton}`]: {
     position: "absolute",
     top: "50%",
     transform: "translateY(-50%)",
@@ -70,10 +94,9 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 2,
     "&:hover": { backgroundColor: "transparent" },
   },
-  navButtonLeft: { left: "10px" },
-  navButtonRight: { right: "10px" },
-  indicators: { display: "none" },
-  heading: {
+  [`& .${classes.navButtonLeft}`]: { left: "10px" },
+  [`& .${classes.navButtonRight}`]: { right: "10px" },
+  [`& .${classes.heading}`]: {
     [theme.breakpoints.down("sm")]: {
       fontSize: "1rem",
       top: "15rem",
@@ -85,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
       left: "20px",
     },
   },
-  badge: {
+  [`& .${classes.badge}`]: {
     [theme.breakpoints.down("sm")]: {
       padding: "1px 3px",
       fontSize: "0.6rem",
@@ -99,59 +122,46 @@ const useStyles = makeStyles((theme) => ({
       left: "10px",
     },
   },
-  details: {
-    position: "absolute",
-    bottom: "7.5rem",
-    left: "5rem",
-    zIndex: 2,
-    color: "#f1f1f16e",
-    display: "flex",
-    alignItems: "center",
+  [`& .${classes.details}`]: {
     [theme.breakpoints.down("sm")]: { bottom: "60px", left: "30px" },
     [theme.breakpoints.down("xs")]: { bottom: "50px", left: "20px" },
   },
-  detailItem: {
+  [`& .${classes.detailItem}`]: {
     [theme.breakpoints.down("sm")]: { fontSize: "0.7rem", marginRight: "5px" },
     [theme.breakpoints.down("xs")]: { fontSize: "0.6rem", marginRight: "5px" },
   },
-  iconContainer: {
+  [`& .${classes.iconContainer}`]: {
     display: "flex",
     alignItems: "center",
   },
-  icon: {
+  [`& .${classes.icon}`]: {
     marginRight: "5px",
     fontSize: "1rem",
     [theme.breakpoints.down("sm")]: { fontSize: "0.8rem" },
     [theme.breakpoints.down("xs")]: { fontSize: "0.7rem" },
   },
-  divider: {
+  [`& .${classes.divider}`]: {
     height: "30px",
     borderRight: "2px solid rgba(255, 255, 255, 0.5)",
     margin: "0 10px",
     [theme.breakpoints.down("sm")]: { height: "15px" },
     [theme.breakpoints.down("xs")]: { height: "10px" },
   },
-  playButton: {
+  [`& .${classes.playButton}`]: {
     [theme.breakpoints.down("sm")]: { fontSize: "3rem" },
     [theme.breakpoints.down("xs")]: { fontSize: "2rem" },
   },
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backdropFilter: "blur(5px)",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  [`& .${classes.modalVideo}`]: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      borderRadius: "0px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      borderRadius: "0px",
+    },
   },
-  modalVideo: {
-    width: "100%",
-    maxHeight: "80vh",
-    outline: "none",
-    borderRadius: "10px",
-    [theme.breakpoints.down("sm")]: { width: "100%", borderRadius: "0" },
-    [theme.breakpoints.down("xs")]: { width: "100%", borderRadius: "0" },
-  },
-  closeButton: {
-    position: "absolute",
+  [`& .${classes.closeButton}`]: {
     top: theme.spacing(1),
     right: theme.spacing(1),
     color: "#fff",
@@ -159,7 +169,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HeroSection = () => {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
 
@@ -174,7 +183,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className={classes.carousel}>
+    <Root>
       <Carousel
         navButtonsAlwaysVisible
         indicators={false}
@@ -197,28 +206,43 @@ const HeroSection = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        className={classes.modal}
         aria-labelledby="video-modal-title"
         aria-describedby="video-modal-description"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backdropFilter: "blur(5px)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        }}
       >
         <div>
-          <IconButton className={classes.closeButton} onClick={handleClose}>
+          <IconButton
+            className={classes.closeButton}
+            style={{ position: "absolute", top: 3, right: 3, color: "#fff" }}
+            onClick={handleClose}
+          >
             <Close />
           </IconButton>
           <video
             src={currentVideo}
             className={classes.modalVideo}
+            style={{
+              width: "100%",
+              maxHeight: "80vh",
+              outline: "none",
+              borderRadius: "10px",
+            }}
             controls
             autoPlay
           />
         </div>
       </Modal>
-    </section>
+    </Root>
   );
 };
 
 const Item = ({ item, handleOpen }) => {
-  const classes = useStyles();
   const videoRef = useRef(null);
 
   const handleMouseEnter = () => videoRef.current && videoRef.current.play();
@@ -297,7 +321,18 @@ const Item = ({ item, handleOpen }) => {
         >
           {item.heading}
         </Typography>
-        <Box className={classes.details}>
+        <Box
+          className={classes.details}
+          sx={{
+            position: "absolute",
+            bottom: "7.5rem",
+            left: "5rem",
+            zIndex: 2,
+            color: "#f1f1f16e",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <Box className={classes.iconContainer}>
             <Event className={classes.icon} />
             <Typography

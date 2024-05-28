@@ -60,13 +60,12 @@ const UserDropdown = () => {
         onClose={handleMenuClose}
         style={{ paddingTop: "0px !important" }}
       >
-        <Box className="drawer" component={"div"}>
+        <Box component={"div"}>
           <Box sx={{ px: 2, py: 1 }}>
             <Typography
               variant="body2"
               color="text.primary"
-              fontFamily={"MontserratLight"}
-              sx={{ color: "#d1d5db" }}
+              fontFamily={"MontserratBold"}
               fontWeight={"800"}
             >
               Bonnie Green
@@ -76,12 +75,11 @@ const UserDropdown = () => {
               color="text.secondary"
               noWrap
               fontFamily={"MontserratBold"}
-              sx={{ color: "#d1d5db" }}
             >
               name@flowbite.com
             </Typography>
           </Box>
-          <Divider sx={{backgroundColor: 'gray'}}/>
+          <Divider />
           {userMenuItems.map((item) => (
             <MenuItem key={item.text} onClick={handleMenuClose}>
               <ListItemText primary={item.text} />
