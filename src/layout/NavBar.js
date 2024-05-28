@@ -18,28 +18,12 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { ExpandMore, ArrowRight } from "@mui/icons-material";
 import "../index.css";
+import "../Style/NavBar.css";
 import user from "../assets/pictures/user.jpg";
-
-const userMenuItems = [
-  { text: "Dashboard" },
-  { text: "Settings" },
-  { text: "Earnings" },
-  { text: "Sign out" },
-];
-
-const mainMenuItems = [
-  { text: "Home", path: "/" },
-  { text: "Score Card", path: "/scorecard" },
-  { text: "Card", path: "/score" },
-  { text: "Profile", path: "/profile" },
-  { text: "About", path: "/about" },
-  { text: "Contact", path: "/contact" },
-  { text: "FAQ", path: "/faq" },
-  { text: "Support", path: "/support" },
-];
+import logo from "../assets/Logo/logo.png";
+import { userMenuItems, mainMenuItems } from "../mockData/navMockUp";
 
 const UserDropdown = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -56,7 +40,7 @@ const UserDropdown = () => {
         color="inherit"
         sx={{
           p: 2,
-          margin: "0 5px 0 15px",
+          margin: "0 5px 0 5rem",
           width: 10,
           height: 10,
           justifyContent: "center",
@@ -74,21 +58,36 @@ const UserDropdown = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
+        style={{ paddingTop: "0px !important" }}
       >
-        <Box sx={{ px: 2, py: 1 }}>
-          <Typography variant="body2" color="text.primary">
-            Bonnie Green
-          </Typography>
-          <Typography variant="body2" color="text.secondary" noWrap>
-            name@flowbite.com
-          </Typography>
+        <Box className="drawer" component={"div"}>
+          <Box sx={{ px: 2, py: 1 }}>
+            <Typography
+              variant="body2"
+              color="text.primary"
+              fontFamily={"MontserratLight"}
+              sx={{ color: "#d1d5db" }}
+              fontWeight={"800"}
+            >
+              Bonnie Green
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              noWrap
+              fontFamily={"MontserratBold"}
+              sx={{ color: "#d1d5db" }}
+            >
+              name@flowbite.com
+            </Typography>
+          </Box>
+          <Divider sx={{backgroundColor: 'gray'}}/>
+          {userMenuItems.map((item) => (
+            <MenuItem key={item.text} onClick={handleMenuClose}>
+              <ListItemText primary={item.text} />
+            </MenuItem>
+          ))}
         </Box>
-        <Divider />
-        {userMenuItems.map((item) => (
-          <MenuItem key={item.text} onClick={handleMenuClose}>
-            <ListItemText primary={item.text} />
-          </MenuItem>
-        ))}
       </Menu>
     </div>
   );
@@ -119,12 +118,13 @@ const Navbar = () => {
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      {["About", "Contact"].map((text) => (
+      {["Teams", "Reels", "ContactUs"].map((text) => (
         <MenuItem
           key={text}
           component={Link}
           to={`/${text.toLowerCase()}`}
           onClick={handleClose}
+          sx={{ fontFamily: "MontserratLight", fontSize: "15px" }}
         >
           {text}
         </MenuItem>
@@ -133,9 +133,10 @@ const Navbar = () => {
         aria-controls="submenu"
         aria-haspopup="true"
         onClick={handleSubmenuClick}
+        sx={{ fontFamily: "MontserratBold", fontSize: "15px" }}
       >
-        More Options
-        <ArrowRightIcon />
+        Gallery
+        <ArrowRight />
       </MenuItem>
       <Menu
         id="submenu"
@@ -146,12 +147,13 @@ const Navbar = () => {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "left" }}
       >
-        {["FAQ", "Support"].map((text) => (
+        {["Images", "Videos"].map((text) => (
           <MenuItem
             key={text}
             component={Link}
             to={`/${text.toLowerCase()}`}
             onClick={handleClose}
+            sx={{ fontFamily: "MontserratLight", fontSize: "15px" }}
           >
             {text}
           </MenuItem>
@@ -179,9 +181,9 @@ const Navbar = () => {
             to={item.path}
             onClick={handleDrawerToggle}
           >
-            <ListItemText
-              className="drawer-text no-uppercase"
-            >{item.text}</ListItemText>
+            <ListItemText className="drawer-text no-uppercase">
+              {item.text}
+            </ListItemText>
           </ListItem>
         ))}
       </List>
@@ -190,7 +192,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="fixed" className="app-bar">
+      <AppBar position="sticky" className="app-bar">
         <Toolbar>
           {isMobile ? (
             <>
@@ -204,40 +206,21 @@ const Navbar = () => {
               >
                 <MenuIcon sx={{ fontSize: "2rem" }} />
               </IconButton>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{
-                  flexGrow: 1,
-                  textDecoration: "none",
-                  color: drawerTextColor,
-                  fontFamily: "btBrik",
-                }}
-              >
-                Season Insight
-              </Typography>
+              <div style={{ flexGrow: 1 }}>
+                <Avatar alt="logo" src={logo} sx={{ width: 50, height: 50 }} />
+              </div>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <UserDropdown />
               </Box>
             </>
           ) : (
             <>
-              <Typography
-                component={Link}
-                to="/"
-                variant="h6"
-                sx={{
-                  textDecoration: "none",
-                  color: drawerTextColor,
-                  fontFamily: "btBrik",
-                  borderBottom: "2px solid transparent",
-                }}
-              >
-                Season Insight
-              </Typography>
+              <div style={{ flexGrow: 1 }}>
+                <Avatar alt="logo" src={logo} sx={{ width: 50, height: 50 }} />
+              </div>
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: "flex" }}>
-                {mainMenuItems.slice(0, 4).map((item) => (
+                {mainMenuItems.slice(0, 8).map((item) => (
                   <Button
                     key={item.text}
                     color="inherit"
@@ -247,7 +230,8 @@ const Navbar = () => {
                     sx={{
                       color: drawerTextColor,
                       marginRight: "16px",
-                      fontFamily: "Montserrat",
+                      fontFamily: "MontserratBold",
+                      fontSize: "12px",
                       textTransform: "none", // Ensure text is not uppercase
                       "&:hover": {
                         color: "#7bbcf8", // Change text color on hover
@@ -259,10 +243,10 @@ const Navbar = () => {
                 ))}
                 <Button
                   color="inherit"
-                  className="link" // Apply link class for border transition
                   sx={{
                     color: drawerTextColor,
-                    fontFamily: "Montserrat",
+                    fontFamily: "MontserratBold",
+                    fontSize: "12px",
                     textTransform: "none", // Ensure text is not uppercase
                     "&:hover": {
                       color: "#7bbcf8", // Change text color on hover
@@ -273,7 +257,7 @@ const Navbar = () => {
                   onClick={handleMenuClick}
                 >
                   More
-                  <ExpandMoreIcon />
+                  <ExpandMore />
                 </Button>
                 {renderMenu}
                 <UserDropdown />
@@ -285,7 +269,6 @@ const Navbar = () => {
       <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
         {renderDrawerMenu}
       </Drawer>
-      <Toolbar /> {/* Spacer to push content below AppBar */}
     </>
   );
 };

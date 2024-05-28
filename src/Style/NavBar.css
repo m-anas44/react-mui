@@ -1,0 +1,39 @@
+.app-bar {
+    background-color: #111827 !important; /* Use !important to override any inline styles */
+  }
+  
+  .drawer {
+    background-color: #13192b !important;
+    color: #d1d5db !important;
+  }
+  
+  .drawer-text {
+    color: #d1d5db !important;
+  }
+  
+  .no-uppercase {
+    text-transform: none !important;
+  }
+  
+  /* Add border transition for the links */
+  .link {
+    position: relative;
+    padding-bottom: 4px;
+    transition: border-bottom 0.3s ease;
+  }
+  
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 50%;
+    height: 2px;
+    background-color: #7bbcf8;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .link:hover::after,
+  .link:focus::after {
+    transform: scaleX(1);
+  }

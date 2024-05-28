@@ -1,18 +1,17 @@
-import React from 'react'
-import HeroSection from '../components/HeroSection'
-
+import React from "react";
+import HeroSection from "../components/Home/HeroSection";
+import NewsSection from "../components/Home/NewsSection";
+import BlogSection from "../components/Home/BlogSection";
+import StatSection from "../components/Home/StatSection";
 const Home = () => {
   return (
-    <div>
-        <HeroSection/>
-        <h1 className='btBrik'>Hi</h1>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-    </div>
-  )
-}
+    <React.Fragment>
+      <HeroSection />
+      <NewsSection />
+      <StatSection />
+      <BlogSection />
+    </React.Fragment>
+  );
+};
 
-export default Home
+export default Home;

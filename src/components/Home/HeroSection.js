@@ -8,8 +8,8 @@ import {
   Chip,
   Divider,
   Modal,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import {
   ArrowBackIos,
   ArrowForwardIos,
@@ -18,68 +18,20 @@ import {
   Event,
   PlayCircleFilled,
   Close,
-} from "@material-ui/icons";
-import video from "../assets/video/cricket.mp4";
-import "../index.css";
-
-const items = [
-  {
-    type: "video",
-    src: video,
-    alt: "Video Slide 1",
-    heading: "From one captain to another",
-    date: "May 25, 2024",
-    time: "2:30",
-    views: "1.2M",
-  },
-  {
-    type: "video",
-    src: video,
-    alt: "Video Slide 2",
-    heading: "Maximum 'Impact', spins it like Shadab",
-    date: "May 24, 2024",
-    time: "3:00",
-    views: "900K",
-  },
-  {
-    type: "video",
-    src: video,
-    alt: "Video Slide 3",
-    heading: "It's all on skills and mindset in finals",
-    date: "May 23, 2024",
-    time: "2:15",
-    views: "1.5M",
-  },
-  {
-    type: "video",
-    src: video,
-    alt: "Video Slide 4",
-    heading: "One more step to glory",
-    date: "May 22, 2024",
-    time: "4:00",
-    views: "800K",
-  },
-  {
-    type: "video",
-    src: video,
-    alt: "Video Slide 5",
-    heading: "Semifinal Qualifier 2 victory",
-    date: "May 21, 2024",
-    time: "2:45",
-    views: "1.8M",
-  },
-];
+} from "@mui/icons-material";
+import { items } from "../../mockData/heroMockUp";
+import "../../index.css";
 
 const useStyles = makeStyles((theme) => ({
   carousel: {
     position: "relative",
     width: "100%",
-    maxHeight: "500px",
+    maxHeight: "600px",
     overflow: "hidden",
   },
   carouselItem: {
     position: "relative",
-    height: "500px",
+    height: "600px",
     [theme.breakpoints.down("sm")]: { height: "300px" },
     [theme.breakpoints.down("xs")]: { height: "200px" },
     cursor: "pointer",
@@ -122,31 +74,18 @@ const useStyles = makeStyles((theme) => ({
   navButtonRight: { right: "10px" },
   indicators: { display: "none" },
   heading: {
-    position: "absolute",
-    bottom: "4rem",
-    left: "5rem",
-    zIndex: 2,
-    color: "#fff",
-    fontSize: "2.5rem",
-    fontWeight: "bold",
-    fontFamily: "btBrik",
-    letterSpacing: "1.5px",
-    [theme.breakpoints.down("sm")]: { fontSize: "1rem", bottom: "25px", left: "30px" },
-    [theme.breakpoints.down("xs")]: { fontSize: "0.8rem", bottom: "20px", left: "20px" },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+      top: "15rem",
+      left: "30px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.8rem",
+      top: "11rem",
+      left: "20px",
+    },
   },
   badge: {
-    position: "absolute",
-    bottom: "10rem",
-    left: "5rem",
-    zIndex: 2,
-    backgroundColor: theme.palette.secondary.main,
-    color: "#fff",
-    padding: "3px 8px",
-    borderRadius: "5px",
-    fontSize: "0.7rem",
-    fontWeight: "bold",
-    fontFamily: 'MontserratLight',
-    textTransform: "uppercase",
     [theme.breakpoints.down("sm")]: {
       padding: "1px 3px",
       fontSize: "0.6rem",
@@ -154,8 +93,8 @@ const useStyles = makeStyles((theme) => ({
       left: "10px",
     },
     [theme.breakpoints.down("xs")]: {
-      padding: "1px 3px",
-      fontSize: "0.6rem",
+      padding: "0",
+      fontSize: "0.5rem",
       top: "10px",
       left: "10px",
     },
@@ -165,19 +104,13 @@ const useStyles = makeStyles((theme) => ({
     bottom: "7.5rem",
     left: "5rem",
     zIndex: 2,
-    color: "#fff",
+    color: "#f1f1f16e",
     display: "flex",
     alignItems: "center",
-    [theme.breakpoints.down("sm")]: { bottom: "50px", left: "30px" },
-    [theme.breakpoints.down("xs")]: { bottom: "40px", left: "20px" },
+    [theme.breakpoints.down("sm")]: { bottom: "60px", left: "30px" },
+    [theme.breakpoints.down("xs")]: { bottom: "50px", left: "20px" },
   },
   detailItem: {
-    fontSize: "0.9rem",
-    fontWeight: "bold",
-    fontFamily: 'MontserratLight',
-    letterSpacing:'1px',
-    marginRight: "10px",
-    color: "#fff",
     [theme.breakpoints.down("sm")]: { fontSize: "0.7rem", marginRight: "5px" },
     [theme.breakpoints.down("xs")]: { fontSize: "0.6rem", marginRight: "5px" },
   },
@@ -199,14 +132,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: { height: "10px" },
   },
   playButton: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    color: "white",
-    fontSize: "5rem",
-    zIndex: 3,
-    cursor: "pointer",
     [theme.breakpoints.down("sm")]: { fontSize: "3rem" },
     [theme.breakpoints.down("xs")]: { fontSize: "2rem" },
   },
@@ -221,9 +146,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     maxHeight: "80vh",
     outline: "none",
-    borderRadius: '10px',
-    [theme.breakpoints.down("sm")]: { width: "100%",borderRadius: '0' },
-    [theme.breakpoints.down("xs")]: { width: "100%",borderRadius: '0' },
+    borderRadius: "10px",
+    [theme.breakpoints.down("sm")]: { width: "100%", borderRadius: "0" },
+    [theme.breakpoints.down("xs")]: { width: "100%", borderRadius: "0" },
   },
   closeButton: {
     position: "absolute",
@@ -249,7 +174,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className={classes.carousel}>
+    <section className={classes.carousel}>
       <Carousel
         navButtonsAlwaysVisible
         indicators={false}
@@ -277,10 +202,7 @@ const HeroSection = () => {
         aria-describedby="video-modal-description"
       >
         <div>
-          <IconButton
-            className={classes.closeButton}
-            onClick={handleClose}
-          >
+          <IconButton className={classes.closeButton} onClick={handleClose}>
             <Close />
           </IconButton>
           <video
@@ -291,7 +213,7 @@ const HeroSection = () => {
           />
         </div>
       </Modal>
-    </div>
+    </section>
   );
 };
 
@@ -327,24 +249,112 @@ const Item = ({ item, handleOpen }) => {
       ) : (
         <img src={item.src} alt={item.alt} className={classes.img} />
       )}
-      <PlayCircleFilled className={classes.playButton} />
+      <PlayCircleFilled
+        className={classes.playButton}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          color: "white",
+          fontSize: "5rem",
+          zIndex: 3,
+          cursor: "pointer",
+        }}
+      />
       <Box component={"div"}>
-        <Chip label="Video" className={classes.badge} />
-        <Typography className={classes.heading}>{item.heading}</Typography>
+        <Chip
+          label="Video"
+          className={classes.badge}
+          sx={{
+            position: "absolute",
+            bottom: "10rem",
+            left: "5rem",
+            zIndex: 2,
+            backgroundColor: "#dc004e",
+            color: "#fff",
+            padding: "3px 8px",
+            borderRadius: "5px",
+            fontSize: "0.7rem",
+            fontWeight: "bold",
+            fontFamily: "MontserratLight",
+            textTransform: "uppercase",
+          }}
+        />
+        <Typography
+          className={classes.heading}
+          sx={{
+            position: "absolute",
+            top: "30rem",
+            left: "5rem",
+            zIndex: 2,
+            color: "#fff",
+            fontSize: "2.5rem",
+            fontWeight: "bold",
+            fontFamily: "btBrik",
+            letterSpacing: "1.5px",
+          }}
+        >
+          {item.heading}
+        </Typography>
         <Box className={classes.details}>
           <Box className={classes.iconContainer}>
             <Event className={classes.icon} />
-            <Typography className={classes.detailItem}>{item.date}</Typography>
+            <Typography
+              className={classes.detailItem}
+              sx={{
+                fontSize: "0.9rem",
+                fontWeight: "bold",
+                fontFamily: "MontserratLight",
+                letterSpacing: "1px",
+                marginRight: "10px",
+                color: "#f1f1f16e",
+              }}
+            >
+              {item.date}
+            </Typography>
           </Box>
-          <Divider className={classes.divider} orientation="vertical" flexItem />
+          <Divider
+            className={classes.divider}
+            orientation="vertical"
+            flexItem
+          />
           <Box className={classes.iconContainer}>
             <AccessTime className={classes.icon} />
-            <Typography className={classes.detailItem}>{item.time}</Typography>
+            <Typography
+              className={classes.detailItem}
+              sx={{
+                fontSize: "0.9rem",
+                fontWeight: "bold",
+                fontFamily: "MontserratLight",
+                letterSpacing: "1px",
+                marginRight: "10px",
+                color: "#f1f1f16e",
+              }}
+            >
+              {item.time}
+            </Typography>
           </Box>
-          <Divider className={classes.divider} orientation="vertical" flexItem />
+          <Divider
+            className={classes.divider}
+            orientation="vertical"
+            flexItem
+          />
           <Box className={classes.iconContainer}>
             <Visibility className={classes.icon} />
-            <Typography className={classes.detailItem}>{item.views}</Typography>
+            <Typography
+              className={classes.detailItem}
+              sx={{
+                fontSize: "0.9rem",
+                fontWeight: "bold",
+                fontFamily: "MontserratLight",
+                letterSpacing: "1px",
+                marginRight: "10px",
+                color: "#f1f1f16e",
+              }}
+            >
+              {item.views}
+            </Typography>
           </Box>
         </Box>
       </Box>

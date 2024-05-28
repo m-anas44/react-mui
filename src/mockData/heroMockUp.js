@@ -1,0 +1,48 @@
+import video from '../assets/video/cricket.mp4';
+export const items = [
+    {
+      type: "video",
+      src: video,
+      alt: "Video Slide 1",
+      heading: "From one captain to another",
+      date: "May 25, 2024",
+      time: "2:30",
+      views: "1.2M",
+    },
+    {
+      type: "video",
+      src: video,
+      alt: "Video Slide 2",
+      heading: "Maximum 'Impact', spins it like Shadab",
+      date: "May 24, 2024",
+      time: "3:00",
+      views: "900K",
+    },
+    {
+      type: "video",
+      src: video,
+      alt: "Video Slide 3",
+      heading: "It's all on skills and mindset in finals",
+      date: "May 23, 2024",
+      time: "2:15",
+      views: "1.5M",
+    },
+    {
+      type: "video",
+      src: video,
+      alt: "Video Slide 4",
+      heading: "One more step to glory",
+      date: "May 22, 2024",
+      time: "4:00",
+      views: "800K",
+    },
+    {
+      type: "video",
+      src: video,
+      alt: "Video Slide 5",
+      heading: "Semifinal Qualifier 2 victory",
+      date: "May 21, 2024",
+      time: "2:45",
+      views: "1.8M",
+    },
+  ];
