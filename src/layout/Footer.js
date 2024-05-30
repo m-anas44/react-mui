@@ -5,6 +5,7 @@ import logo from "../assets/Logo/logo.png";
 import "../index.css";
 import { GitHub, Facebook, Twitter, Instagram } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
+import {linkItems} from '../mockData/footerMockUp'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     display: "block",
-    marginBottom: theme.spacing(1),
+    // marginBottom: theme.spacing(1),
     letterSpacing: "-0.5px",
     color: '#d1d5db',
     fontFamily: "MontserratLight",
@@ -53,33 +54,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mockupData = {
-  company: [
-    { text: "About", url: "#" },
-    { text: "Features", url: "#" },
-    { text: "Works", url: "#" },
-    { text: "Career", url: "#" },
-  ],
-  help: [
-    { text: "Customer Support", url: "#" },
-    { text: "Delivery Details", url: "#" },
-    { text: "Terms & Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
-  resources: [
-    { text: "Free eBooks", url: "#" },
-    { text: "Development Tutorial", url: "#" },
-    { text: "How to - Blog", url: "#" },
-    { text: "YouTube Playlist", url: "#" },
-  ],
-  extraLinks: [
-    { text: "Customer Support", url: "#" },
-    { text: "Delivery Details", url: "#" },
-    { text: "Terms & Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
-};
-
 const Footer = () => {
   const classes = useStyles();
 
@@ -99,25 +73,25 @@ const Footer = () => {
             <Typography variant="h6" className={classes.sectionTitle}>
               Company
             </Typography>
-            {renderLinks(mockupData.company)}
+            {renderLinks(linkItems.company)}
           </Grid>
           <Grid container item xs={6} sm={6} md={3} direction="column">
             <Typography variant="h6" className={classes.sectionTitle}>
               Help
             </Typography>
-            {renderLinks(mockupData.help)}
+            {renderLinks(linkItems.help)}
           </Grid>
           <Grid container item xs={6} sm={6} md={3} direction="column">
             <Typography variant="h6" className={classes.sectionTitle}>
               Resources
             </Typography>
-            {renderLinks(mockupData.resources)}
+            {renderLinks(linkItems.resources)}
           </Grid>
           <Grid container item xs={6} sm={6} md={3} direction="column">
             <Typography variant="h6" className={classes.sectionTitle}>
               Extra Links
             </Typography>
-            {renderLinks(mockupData.extraLinks)}
+            {renderLinks(linkItems.extraLinks)}
           </Grid>
         </Grid>
         <Divider sx={{ borderColor: '#7bbcf8', margin: '1rem 0' }} />
