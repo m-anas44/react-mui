@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const Section = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.secondary.main,
-  padding: theme.spacing(4, 0),
+  padding: theme.spacing(6, 0),
   [theme.breakpoints.up("lg")]: {
     padding: theme.spacing(6, 8),
   },
