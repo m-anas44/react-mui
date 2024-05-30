@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#7bbcf8',
   },
   link: {
-    display: "block",
-    // marginBottom: theme.spacing(1),
+    // display: "block",
+    marginBottom: theme.spacing(1),
     letterSpacing: "-0.5px",
     color: '#d1d5db',
     fontFamily: "MontserratLight",
