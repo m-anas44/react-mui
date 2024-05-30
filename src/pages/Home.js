@@ -4,14 +4,20 @@ import NewsSection from "../components/Home/NewsSection";
 import BlogSection from "../components/Home/BlogSection";
 import StatSection from "../components/Home/StatSection";
 import ContactSection from "../components/Home/ContactSection";
+import MissionSection from "../components/Home/MissionSection";
+import PerformanceSection from "../components/Home/PerformanceSection";
+import UpMatchSection from "../components/Home/UpMatchSection";
 const Home = () => {
   return (
     <React.Fragment>
       <HeroSection />
       <NewsSection />
       <StatSection />
+      <PerformanceSection />
       <BlogSection />
+      <UpMatchSection />
       <ContactSection />
+      <MissionSection />
     </React.Fragment>
   );
 };

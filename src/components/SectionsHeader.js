@@ -19,7 +19,7 @@ const SectionsHeader = (props) => {
     >
       <Typography
         component="h3"
-        variant={isMobile ? "h5" : "h4"}
+        variant={isMobile ? "h6" : "h4"}
         color="primary.main"
         fontFamily={"btBrik"}
         sx={{ color: "#111827" }}
@@ -29,7 +29,6 @@ const SectionsHeader = (props) => {
       <CustomButton
         name={props.buttonName}
         sx={{
-          fontSize: isMobile ? "0.575rem" : "1rem",
           padding: isMobile ? "0px" : "10px 20px",
         }}
       />

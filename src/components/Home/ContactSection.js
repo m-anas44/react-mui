@@ -1,49 +1,25 @@
-import React from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import React from "react";
+import { Box, Container, Typography, Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Section = styled('section')(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-  color: theme.palette.text.primary,
-  padding: theme.spacing(8, 4),
-  textAlign: 'center',
-  [theme.breakpoints.up('lg')]: {
-    padding: theme.spacing(16, 4),
-  },
-}));
-
-const Heading = styled(Typography)(({ theme }) => ({
-  marginBottom: theme.spacing(4),
-  fontSize: '2.5rem',
-  fontWeight: 'bold',
-  [theme.breakpoints.up('md')]: {
-    fontSize: '3.75rem',
-  },
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '4.5rem',
+const Section = styled("section")(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.secondary.main,
+  padding: theme.spacing(4, 0),
+  [theme.breakpoints.up("lg")]: {
+    padding: theme.spacing(8, 8),
   },
 }));
 
 const Subheading = styled(Typography)(({ theme }) => ({
-  marginBottom: theme.spacing(8),
-  fontSize: '1.125rem',
-  fontWeight: 'normal',
-  color: theme.palette.text.secondary,
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '1.25rem',
-    paddingLeft: theme.spacing(12),
-    paddingRight: theme.spacing(12),
-  },
-}));
-
-const ButtonContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: theme.spacing(2),
-  [theme.breakpoints.up('sm')]: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  fontSize: "1.125rem",
+  fontWeight: "normal",
+  color: "#d1d5db",
+  [theme.breakpoints.up("md")]: {
+    fontSize: "1.25rem",
+    maxWidth: "40rem",
+    margin: "0",
   },
 }));
 
@@ -51,29 +27,35 @@ const ContactSection = () => {
   return (
     <Section>
       <Container maxWidth="xl">
-        <Heading variant="h1">
-          Get in Contact with Us
-        </Heading>
-        <Subheading variant="body1">
-          We're here to help you with any questions or concerns. Feel free to reach out to us anytime.
-        </Subheading>
-        <ButtonContainer>
+        <Box display="flex" flexDirection="column" alignItems="start" gap={2}>
+          <Typography
+            variant="h3"
+            component="h3"
+            gutterBottom
+            marginBottom={"0px"}
+            fontFamily={"btBrik"}
+            color="inherit"
+          >
+            Get In Contact
+          </Typography>
+          <Subheading variant="body1">
+            We're here to help you with any questions or concerns. Feel free to
+            reach out to us anytime.
+          </Subheading>
           <Button
             variant="contained"
-            color="primary"
             size="large"
             endIcon={<ArrowForwardIosIcon />}
+            sx={{
+              backgroundColor: "#dc004e",
+              "&:hover": {
+                backgroundColor: "#a70037",
+              },
+            }}
           >
             Contact Us
           </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-          >
-            Learn More
-          </Button>
-        </ButtonContainer>
+        </Box>
       </Container>
     </Section>
   );

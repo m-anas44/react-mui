@@ -8,7 +8,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   color: "#efefeff7",
   textTransform: "none",
   padding: theme.spacing(1, 2.5),
-  fontSize: "1rem",
+  fontSize: "12px",
   fontWeight: "bold",
   display: "flex",
   alignItems: "center",
@@ -29,7 +29,7 @@ const CustomButton = (props) => {
     <StyledButton
       variant="contained"
       endIcon={<ArrowForwardIcon className="icon" />}
-      sx={{ fontFamily: "MontserratMedium", fontSize: "12px" }}
+      sx={{ fontFamily: "MontserratMedium", textTransform: 'capitalize' }}
     >
       {props.name}
     </StyledButton>

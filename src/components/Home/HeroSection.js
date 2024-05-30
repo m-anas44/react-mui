@@ -312,7 +312,7 @@ const Item = ({ item, handleOpen }) => {
             top: "30rem",
             left: "5rem",
             zIndex: 2,
-            color: "#fff",
+            color: "secondary.main",
             fontSize: "2.5rem",
             fontWeight: "bold",
             fontFamily: "btBrik",
