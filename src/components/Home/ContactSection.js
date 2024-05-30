@@ -35,6 +35,7 @@ const ContactSection = () => {
             marginBottom={"0px"}
             fontFamily={"btBrik"}
             color="inherit"
+            fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
           >
             Get In Contact
           </Typography>
@@ -44,7 +45,7 @@ const ContactSection = () => {
           </Subheading>
           <Button
             variant="contained"
-            size="large"
+            size={`${{ xs: "small", sm: "medium", md: "large" }}`}
             endIcon={<ArrowForwardIosIcon />}
             sx={{
               backgroundColor: "#dc004e",

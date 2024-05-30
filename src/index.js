@@ -9,6 +9,7 @@ import News from "./pages/News";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme/appTheme";
 import { CssBaseline } from "@mui/material";
+import Footer from "./layout/Footer";
 const App = function () {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const App = function () {
         <Route path="/scoreBook" Component={ScoreBook} />
         <Route path="/news" Component={News} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

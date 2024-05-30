@@ -70,7 +70,8 @@ const VsBlock = styled(Typography)(({ theme }) => ({
 const LocationText = styled(Typography)(({ theme }) => ({
   color: "#7bbcf8",
   fontFamily: "MontserratMedium",
-  marginBottom: theme.spacing(1), // Using theme spacing for consistent spacing
+  marginBottom: theme.spacing(1), 
+  maxWidth:'90%',
 }));
 
 const TimeInfo = styled(Box)(({ theme }) => ({

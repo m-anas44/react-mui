@@ -14,8 +14,8 @@ const Home = () => {
       <NewsSection />
       <StatSection />
       <PerformanceSection />
-      <BlogSection />
       <UpMatchSection />
+      <BlogSection />
       <ContactSection />
       <MissionSection />
     </React.Fragment>

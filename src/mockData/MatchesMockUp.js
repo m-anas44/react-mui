@@ -18,8 +18,8 @@ export const matchData = [
   },
   {
     title: "UPCOMING",
-    subtitle: "India vs Australia, Test Match India vs Australia, Test Match",
-    location: "Sydney Cricket Ground",
+    subtitle: "India vs Australia, Test Match India vs Australia, Test Match ",
+    location: "Sydney Cricket Ground Sydney Cricket Ground",
     teams: [
       {
         name: "West Indies",
@@ -36,7 +36,7 @@ export const matchData = [
   {
     title: "UPCOMING",
     subtitle: "New Zealand vs South Africa, T20",
-    location: "Eden Park",
+    location: "Eden Park Eden Park Eden Park",
     teams: [
       {
         name: "NZ",

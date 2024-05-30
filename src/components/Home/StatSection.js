@@ -14,31 +14,31 @@ const StatSection = () => {
   });
 
   return (
-    <Box py={{ xs: 2, sm: 3, lg: 4 }} bgcolor="grey.100">
+    <Box py={{ xs: 6, sm: 3, lg: 6 }} bgcolor="grey.100">
       <Container maxWidth="lg">
         <Box textAlign="center" maxWidth="md" mx="auto">
           <Typography
             variant={isSmallScreen ? "h3" : "h2"}
             component="h2"
-            fontWeight=""
             gutterBottom
             fontFamily={"btBrik"}
+            color="#111827"
           >
             Season Updates
           </Typography>
-          <Typography variant="h6" color="textSecondary" paragraph mb={'0'}>
+          <Typography variant="h6" color="textSecondary" paragraph mb={'0'} fontFamily={'MontserratLight'}>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis.
           </Typography>
         </Box>
-        <Grid container spacing={0} mt={{ xs: 8, lg: 10 }} textAlign="center" ref={ref}>
+        <Grid container spacing={0} mt={{ xs: 4, lg: 7 }} textAlign="center" ref={ref}>
           {statItems.map((stat, index) => (
             <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
               <Typography variant="h3" component="h3" fontWeight="bold" mt={'1rem'} color="#111827">
                 <Box
                   component="span"
                   sx={{
-                    background: "linear-gradient(to right, #111827, #dc004e)",
+                    background: "linear-gradient(to right,#dc004e, #111827 )",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                     fontFamily: "btBrik",
