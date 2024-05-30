@@ -1,36 +1,28 @@
 import React from "react";
 import MatchCard from "../MatchCard";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { matchData } from "../../mockData/MatchesMockUp";
 import SectionsHeader from "../SectionsHeader";
-import { styled } from "@mui/styles";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Section = styled("section")(({ theme }) => ({
-  padding: theme.spacing(1),
-  [theme.breakpoints.up("lg")]: {
-    padding: theme.spacing(3, 11),
-  },
-}));
-
-const CardWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(1),
-}));
-
 const UpMatchSection = () => {
   const settings = {
     dots: true,
+    infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplay: true, // Added autoplay property
+    autoplaySpeed: 3000, // Adjust autoplay speed as needed
     responsive: [
       {
         breakpoint: 1280,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          infinite: true,
           dots: true,
         },
       },
@@ -39,14 +31,7 @@ const UpMatchSection = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          infinite: true,
           dots: true,
         },
       },
@@ -54,17 +39,16 @@ const UpMatchSection = () => {
   };
 
   return (
-    <Box component="section">
-      <SectionsHeader heading="upcoming matches" buttonName="all matches" />
-      <Section>
-        <Slider {...settings}>
-          {matchData.map((match, index) => (
-            <CardWrapper key={index}>
-              <MatchCard match={match} />
-            </CardWrapper>
-          ))}
-        </Slider>
-      </Section>
+    <Box component="section" sx={{ overflow: "hidden" }} px={{ xs: 2, lg: 9 }} py={{ xs: 2, lg: 2 }}>
+      <SectionsHeader heading="upcoming matches" buttonName="all matches"/>
+      <Slider {...settings}>
+        {matchData.map((match, index) => (
+          <Grid item key={index} sx={{ padding: '0 8px' }}>
+            <MatchCard match={match} />
+          </Grid>
+        ))}
+      </Slider>
+      <br />
     </Box>
   );
 };

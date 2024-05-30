@@ -14,7 +14,7 @@ const StatSection = () => {
   });
 
   return (
-    <Box py={{ xs: 6, sm: 6, lg: 8 }} bgcolor="grey.100">
+    <Box py={{ xs: 2, sm: 3, lg: 4 }} bgcolor="grey.100">
       <Container maxWidth="lg">
         <Box textAlign="center" maxWidth="md" mx="auto">
           <Typography

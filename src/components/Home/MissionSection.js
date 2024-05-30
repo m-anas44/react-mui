@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 import "../../index.css";
 const Section = styled(Box)(({ theme }) => ({
   backgroundColor: "#f4f5f7",
-  padding: theme.spacing(8, 0),
+  padding: theme.spacing(4, 0),
 }));
 
 const TitleBox = styled(Box)(({ theme }) => ({
@@ -34,7 +34,7 @@ const MissionSection = () => {
   return (
     <Section>
       <Container maxWidth="lg">
-        <Grid container spacing={4} alignItems="center" p={{ xs: 0, lg: 3 }}>
+        <Grid container spacing={4} alignItems="center" p={{ xs: 0, lg: 2 }}>
           <Grid item xs={12} md={6}>
             <TitleBox>
               <MissionTitle variant="h6">Our Mission</MissionTitle>

@@ -5,20 +5,18 @@ import "../index.css";
 
 const Card = styled(Paper)(({ theme }) => ({
   background: `linear-gradient(135deg, ${theme.palette.primary.main} 79%, #7bbcf8 21%)`,
-  padding: theme.spacing(1),
+  padding: theme.spacing(2),
   borderRadius: theme.shape.borderRadius,
   boxShadow: theme.shadows[3],
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  height: "100%",
-  minWidth: '350px',
   minHeight: "200px",
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,
-  fontSize: "0.75rem",
+  fontSize: "1rem", // Adjusted font size for better readability
   fontFamily: "MontserratMedium",
   fontWeight: "bold",
 }));
@@ -61,6 +59,26 @@ const VsBlock = styled(Typography)(({ theme }) => ({
   justifyContent: "center",
   padding: "0 12px",
   color: theme.palette.secondary.main,
+  [theme.breakpoints.up("xs")]: {
+    padding: "4px",
+  },
+  [theme.breakpoints.up("sm")]: {
+    padding: "0 1rem",
+  },
+}));
+
+const LocationText = styled(Typography)(({ theme }) => ({
+  color: "#7bbcf8",
+  fontFamily: "MontserratMedium",
+  marginBottom: theme.spacing(1), // Using theme spacing for consistent spacing
+}));
+
+const TimeInfo = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  color: "#d1d5db",
+  marginTop: '10px'
 }));
 
 const MatchCard = ({ match }) => {
@@ -68,7 +86,7 @@ const MatchCard = ({ match }) => {
 
   return (
     <Card>
-      <Box mb={1}>
+      <Box>
         <Title>{title}</Title>
         <Subtitle variant="h6">{subtitle}</Subtitle>
       </Box>
@@ -80,6 +98,7 @@ const MatchCard = ({ match }) => {
           textAlign: "center",
           gap: "0.5rem",
         }}
+        flexDirection={{ xs: 'column', sm: 'row'}}
       >
         <TeamInfo sx={{ flexGrow: 1 }}>
           <TeamName>
@@ -87,7 +106,7 @@ const MatchCard = ({ match }) => {
             {teams[0].name}
           </TeamName>
         </TeamInfo>
-        <VsBlock>vs</VsBlock>
+        <VsBlock >vs</VsBlock>
         <TeamInfo sx={{ flexGrow: 1 }}>
           <TeamName>
             <TeamFlag src={teams[1].flagSrc} alt={`${teams[1].name} Flag`} />
@@ -95,38 +114,12 @@ const MatchCard = ({ match }) => {
           </TeamName>
         </TeamInfo>
       </Box>
-      <Box>
-        <Typography
-          sx={{
-            color: "#7bbcf8",
-            fontFamily: "MontserratMedium",
-            marginBottom: "3px",
-            maxWidth:'20rem',
-          }}
-        >
-          Live from {location}
-        </Typography>
-      </Box>
-      <Divider sx={{ borderColor: "#7bbcf8", marginBottom: '6px' }} />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginTop: "0.5rem",
-          color: "#d1d5db",
-          mt: "auto",
-        }}
-      >
-        <Typography fontFamily="MontserratMedium">{date}</Typography>
-        <Typography
-          fontFamily="MontserratBold"
-          color={"#111827"}
-          fontSize={"15px"}
-        >
-          {time}
-        </Typography>
-      </Box>
+      <LocationText variant="body2">Live from {location}</LocationText>
+      <Divider sx={{borderWidth: '1px', borderColor: '#7bbcf8'}} />
+      <TimeInfo>
+        <Typography fontFamily='MontserratMedium'>{date}</Typography>
+        <Typography fontFamily='MontserratMedium' color={'#111827'} fontSize={{xs: '13px', sm: '16px'}}>{time}</Typography>
+      </TimeInfo>
     </Card>
   );
 };

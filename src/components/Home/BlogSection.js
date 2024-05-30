@@ -5,7 +5,7 @@ import { Box, Grid } from "@mui/material";
 import SectionsHeader from "../SectionsHeader";
 const BlogSection = () => {
   return (
-    <Box component="section" pl={0} pr={0} py={{ xs: 6, sm: 6, lg: 8 }}>
+    <Box component="section" pl={0} pr={0} py={{ xs: 2, sm: 3, lg: 2 }}>
       <SectionsHeader heading={"Latest Blogs"} buttonName={"All Blogs"} />
       <Box maxWidth="1200px" mx="auto" px={2} mt={4}>
         <Grid container spacing={2} justifyContent="start">

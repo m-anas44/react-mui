@@ -16,6 +16,7 @@ const SectionsHeader = (props) => {
       mx="auto"
       maxWidth="1200px"
       px={2}
+      py={3}
     >
       <Typography
         component="h3"

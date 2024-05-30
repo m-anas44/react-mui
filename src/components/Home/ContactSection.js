@@ -8,7 +8,7 @@ const Section = styled("section")(({ theme }) => ({
   color: theme.palette.secondary.main,
   padding: theme.spacing(4, 0),
   [theme.breakpoints.up("lg")]: {
-    padding: theme.spacing(8, 8),
+    padding: theme.spacing(6, 8),
   },
 }));
 
