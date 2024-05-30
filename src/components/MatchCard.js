@@ -70,8 +70,8 @@ const VsBlock = styled(Typography)(({ theme }) => ({
 const LocationText = styled(Typography)(({ theme }) => ({
   color: "#7bbcf8",
   fontFamily: "MontserratMedium",
-  marginBottom: theme.spacing(1), 
-  maxWidth:'90%',
+  marginBottom: theme.spacing(1),
+  maxWidth: "90%",
 }));
 
 const TimeInfo = styled(Box)(({ theme }) => ({
@@ -79,7 +79,7 @@ const TimeInfo = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",
   color: "#d1d5db",
-  marginTop: '10px'
+  marginTop: "10px",
 }));
 
 const MatchCard = ({ match }) => {
@@ -99,7 +99,7 @@ const MatchCard = ({ match }) => {
           textAlign: "center",
           gap: "0.5rem",
         }}
-        flexDirection={{ xs: 'column', sm: 'row'}}
+        flexDirection={{ xs: "column", sm: "row" }}
       >
         <TeamInfo sx={{ flexGrow: 1 }}>
           <TeamName>
@@ -107,7 +107,7 @@ const MatchCard = ({ match }) => {
             {teams[0].name}
           </TeamName>
         </TeamInfo>
-        <VsBlock >vs</VsBlock>
+        <VsBlock>vs</VsBlock>
         <TeamInfo sx={{ flexGrow: 1 }}>
           <TeamName>
             <TeamFlag src={teams[1].flagSrc} alt={`${teams[1].name} Flag`} />
@@ -116,10 +116,16 @@ const MatchCard = ({ match }) => {
         </TeamInfo>
       </Box>
       <LocationText variant="body2">Live from {location}</LocationText>
-      <Divider sx={{borderWidth: '1px', borderColor: '#7bbcf8'}} />
+      <Divider sx={{ borderWidth: "1px", borderColor: "#7bbcf8" }} />
       <TimeInfo>
-        <Typography fontFamily='MontserratMedium'>{date}</Typography>
-        <Typography fontFamily='MontserratMedium' color={'#111827'} fontSize={{xs: '13px', sm: '16px'}}>{time}</Typography>
+        <Typography fontFamily="MontserratMedium">{date}</Typography>
+        <Typography
+          fontFamily="MontserratMedium"
+          color={"#111827"}
+          fontSize={{ xs: "13px", sm: "16px" }}
+        >
+          {time}
+        </Typography>
       </TimeInfo>
     </Card>
   );

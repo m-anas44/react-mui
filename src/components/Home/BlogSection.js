@@ -11,7 +11,13 @@ const BlogSection = () => {
         <Grid container spacing={2} justifyContent="start">
           {blogItems.map((item) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-              <BlogCard avatar={item.avatar} title={item.title} subheader={item.subheader} image={item.image} content={item.content} />
+              <BlogCard
+                avatar={item.avatar}
+                title={item.title}
+                subheader={item.subheader}
+                image={item.image}
+                content={item.content}
+              />
             </Grid>
           ))}
         </Grid>

@@ -1,5 +1,12 @@
 import React from "react";
-import { Container, Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import "../../index.css";
@@ -26,15 +33,33 @@ const StatSection = () => {
           >
             Season Updates
           </Typography>
-          <Typography variant="h6" color="textSecondary" paragraph mb={'0'} fontFamily={'MontserratLight'}>
+          <Typography
+            variant="h6"
+            color="textSecondary"
+            paragraph
+            mb={"0"}
+            fontFamily={"MontserratLight"}
+          >
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis.
           </Typography>
         </Box>
-        <Grid container spacing={0} mt={{ xs: 4, lg: 7 }} textAlign="center" ref={ref}>
+        <Grid
+          container
+          spacing={0}
+          mt={{ xs: 4, lg: 7 }}
+          textAlign="center"
+          ref={ref}
+        >
           {statItems.map((stat, index) => (
             <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
-              <Typography variant="h3" component="h3" fontWeight="bold" mt={'1rem'} color="#111827">
+              <Typography
+                variant="h3"
+                component="h3"
+                fontWeight="bold"
+                mt={"1rem"}
+                color="#111827"
+              >
                 <Box
                   component="span"
                   sx={{
@@ -42,10 +67,14 @@ const StatSection = () => {
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                     fontFamily: "btBrik",
-                    padding: '10px',
+                    padding: "10px",
                   }}
                 >
-                  {inView ? <CountUp end={stat.value} duration={3} start={0} /> : 0}
+                  {inView ? (
+                    <CountUp end={stat.value} duration={3} start={0} />
+                  ) : (
+                    0
+                  )}
                 </Box>
               </Typography>
               <Typography

@@ -23,16 +23,16 @@ const StyledButton = styled(Button)(({ theme }) => ({
   "&:hover .icon": {
     transform: "translateX(5px)",
   },
-  [theme.breakpoints.down('xs')]: {
-    fontSize: '10px',
-  }
+  [theme.breakpoints.down("xs")]: {
+    fontSize: "10px",
+  },
 }));
 const CustomButton = (props) => {
   return (
     <StyledButton
       variant="contained"
       endIcon={<ArrowForwardIcon className="icon" />}
-      sx={{ fontFamily: "MontserratMedium", textTransform: 'capitalize' }}
+      sx={{ fontFamily: "MontserratMedium", textTransform: "capitalize" }}
     >
       {props.name}
     </StyledButton>

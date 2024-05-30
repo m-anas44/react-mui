@@ -7,7 +7,7 @@ import SectionsHeader from "../SectionsHeader";
 const NewsSection = () => {
   return (
     <Box component="section" pl={0} pr={0} py={{ xs: 2, sm: 3, lg: 4 }}>
-      <SectionsHeader heading={'Latest News'} buttonName={'All News'}/>
+      <SectionsHeader heading={"Latest News"} buttonName={"All News"} />
       <Box maxWidth="1200px" mx="auto" px={2} mt={1}>
         <Grid container spacing={2} justifyContent="start">
           {newsItems.map((item) => (

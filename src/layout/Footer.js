@@ -5,7 +5,7 @@ import logo from "../assets/Logo/logo.png";
 import "../index.css";
 import { GitHub, Facebook, Twitter, Instagram } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
-import {linkItems} from '../mockData/footerMockUp'
+import { linkItems } from "../mockData/footerMockUp";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -17,13 +17,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     fontWeight: "bold",
     fontFamily: "MontserratBold !important",
-    color: '#7bbcf8',
+    color: "#7bbcf8",
   },
   link: {
-    // display: "block",
     marginBottom: theme.spacing(1),
     letterSpacing: "-0.5px",
-    color: '#d1d5db',
+    color: "#d1d5db",
     fontFamily: "MontserratLight",
     textDecoration: "none",
     "&:hover": {
@@ -49,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     textAlign: "center",
     fontFamily: "MontserratLight",
-    fontSize: '14px',
-    color: '#d1d5db',
+    fontSize: "14px",
+    color: "#d1d5db",
   },
 }));
 
@@ -94,9 +93,26 @@ const Footer = () => {
             {renderLinks(linkItems.extraLinks)}
           </Grid>
         </Grid>
-        <Divider sx={{ borderColor: '#7bbcf8', margin: '1rem 0' }} />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', width: '100%' }} flexDirection={{ xs: 'column', sm: 'row', md: 'row' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexGrow: 1 }}>
+        <Divider sx={{ borderColor: "#7bbcf8", margin: "1rem 0" }} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "1rem",
+            width: "100%",
+          }}
+          flexDirection={{ xs: "column", sm: "row", md: "row" }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "1rem",
+              flexGrow: 1,
+            }}
+          >
             <Link to="#" className={classes.logo}>
               <img src={logo} alt="season insight" width={72} height={72} />
             </Link>
@@ -115,7 +131,11 @@ const Footer = () => {
               </Link>
             </Box>
           </Box>
-          <Typography variant="body2" className={classes.copyright} sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="body2"
+            className={classes.copyright}
+            sx={{ flexGrow: 1 }}
+          >
             © Copyright 2021, All Rights Reserved by Postcraft
           </Typography>
         </Box>

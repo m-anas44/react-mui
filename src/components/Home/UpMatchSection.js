@@ -39,11 +39,16 @@ const UpMatchSection = () => {
   };
 
   return (
-    <Box component="section" sx={{ overflow: "hidden" }} px={{ xs: 2, lg: 9 }} py={{ xs: 2, lg: 2 }}>
-      <SectionsHeader heading="upcoming matches" buttonName="all"/>
+    <Box
+      component="section"
+      sx={{ overflow: "hidden" }}
+      px={{ xs: 2, lg: 9 }}
+      py={{ xs: 2, lg: 2 }}
+    >
+      <SectionsHeader heading="upcoming matches" buttonName="all" />
       <Slider {...settings}>
         {matchData.map((match, index) => (
-          <Grid item key={index} sx={{ padding: '0 8px' }}>
+          <Grid item key={index} sx={{ padding: "0 8px" }}>
             <MatchCard match={match} />
           </Grid>
         ))}
