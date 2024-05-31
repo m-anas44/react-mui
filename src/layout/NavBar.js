@@ -82,7 +82,9 @@ const UserDropdown = () => {
           <Divider />
           {userMenuItems.map((item) => (
             <MenuItem key={item.text} onClick={handleMenuClose}>
-              <ListItemText primary={item.text} />
+              <Link to={`${item.path}`} style={{textDecoration: 'none', color:'#000'}}>
+                <ListItemText primary={item.text} />
+              </Link>
             </MenuItem>
           ))}
         </Box>
